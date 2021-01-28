@@ -19,4 +19,17 @@ public class ResponderModel {
         return teamName;
     }
 
+    public String answerSuma(String question) {
+        if ("".equals(question)){
+            return teamName;
+        }
+
+        Matcher sumMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
+        if (sumMatcher.matches()) {
+            return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
+        }
+
+        return teamName;
+    }
+
 }
